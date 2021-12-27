@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from "./pages/Home";
+import Game from "./pages/Game";
+import Navbar from "./Components/navbar/navbar";
+import Footer from "./Components/footer";
 
 function App() {
+  
+  function Page() {
+    
+    if (window.location.pathname=='/CDEK/' || window.location.pathname=='/CDEK') {
+      return (<Home/>)
+    }
+  
+    else {
+      let game = window.location.pathname.replace('/CDEK/', '').replace('%20', ' ').replace('%20', ' ')
+      document.title = game;
+      return (<Game name={game} />)
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <Navbar/>
+    {Page()}
+    <Footer/>
+    </>
+  )
+
+  
 }
 
 export default App;
