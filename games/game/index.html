@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDEK - name</title>
+    <link rel="stylesheet" href="/CDEK/css/utilities.css">
+    <link rel="stylesheet" href="/CDEK/css/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/CDEK/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v12.0" nonce="iyXTcH3H"></script>
+
+    <!--navbar-->
+    <center class="navbar flex">
+        <div class="bg-trans flex navbar-item">
+            <div id="menu" class="bg-black" onclick="mb()"></div>
+            <div class="items bg-trans" id="logo"></div>
+            <div class="items bg-trans" style="padding-top: 6px; font-style: italic;">
+                <a class="title bg-trans" style="color: aqua; text-decoration: solid;" href="/CDEK/">CDEK</a>
+            </div>
+        </div>
+        <div class="bg-trans color-aqua flex navbar-item" style="margin-left: 100px; padding-bottom: 6px;">
+            <a href="/CDEK/" class="color-aqua" style="margin-right: 15px; margin-left: 15px; font-size: 16px; text-decoration: none; border-radius: 6px;">Home</a>
+            <a href="/CDEK/" class="color-aqua bg-trans" style="margin-right: 15px; margin-left: 15px; font-size: 16px; text-decoration: none;">About me</a>
+            <a href="/CDEK/" class="color-aqua bg-trans" style="margin-right: 15px; margin-left: 15px; font-size: 16px; text-decoration: none;">Contact me</a>
+            <center class="bg-trans color-aqua" style="margin-right: 15px; margin-left: 15px;">
+                Search : <input type="text" id="searchbar">
+            </center>
+        </div>
+    </center>
+
+    <!--banner and title-->
+    <div class="post-title flex">
+        <h1 class="items title bg-trans" id="post-title-text">Title</h1>
+    </div>
+
+    <!--image crousel-->
+    <div class="crousel items bg-trans flex">
+        <div class="crousel-image flex crousel-images">
+            <button class="btn" onclick="prevImage()"><</button>
+            <button class="btn" onclick="nextImage()">></button>
+        </div>
+    </div>
+
+    <!-- about -->
+    <br>
+    <div class="full-width">
+        <div class="about">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam cum magni earum reiciendis ad eius nesciunt ipsam esse dolorum molestias enim aliquam voluptate, expedita error praesentium labore laudantium quam placeat.</p><br>
+            <h5>Made on : </h5>
+            <p>__-__-____</p>
+            <h5>Version : </h5>
+            <p>_._</p>
+        </div>
+    </div>
+    <br><br>
+
+    <!-- Download links -->
+    <br><br>
+    <center>
+        <center style="width: 50%;">
+            <button class="btn-blue btn items full-width color-black" style="margin-bottom: 10px;"><a href="/" class="bg-trans" style="font-size: small; text-decoration: none;">Download APK</a></button>
+            <button class="btn-blue btn items full-width color-black" style="margin-bottom: 10px;"><a href="/" class="bg-trans" style="font-size: small; text-decoration: none;">Download Windows</a></button>
+            <button class="btn-blue btn items full-width color-black" style="margin-bottom: 10px;"><a href="/" class="bg-trans" style="font-size: small; text-decoration: none;">Source Code</a></button>
+        </center>
+    </center>
+
+    <!-- comment section -->
+    <div class="comment-section">
+        <div class="add-comment full-width">
+            <h1>Feel free to comment</h1><br>
+            <form id="add-comment">
+                Name : <input type="text" name="name" required><br><br>
+                <p>Comment :</p>
+                <textarea type="text" name="comment" required style="width: 80%;height: 64px; margin: 15px;"></textarea><br>
+                <button class="btn btn-blue" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <br><br>
+    <div class="footer">
+        <div class="items bg-trans">©CDEK 2021-2022 : All rights reserved</div>
+    </div>
+
+</body>
+<script src="/CDEK/script.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="script.js"></script>
+</html>

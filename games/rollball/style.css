@@ -1,0 +1,14 @@
+*{
+    background-color: unset;
+    color: black;
+}
+
+.crousel-images{
+    background-image: url(Start.png);
+}
+
+.about{
+    margin-left: 40px;
+    margin-top: 20px;
+    font-size: large;
+}

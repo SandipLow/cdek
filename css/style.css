@@ -1,0 +1,207 @@
+a {
+    text-decoration: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: black;
+    background-color: aqua;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar,
+.footer{
+    background-color: black;
+    height: 8%;
+    width: 99%;
+    position: fixed;
+    overflow-y: hidden;
+    z-index: 100;
+}
+
+.navbar{
+    transition: max-height 1s ease-in-out;
+    opacity: 80%;
+    width: 93%;
+    left: 3%;
+    top: 1%;
+    height: fit-content;
+    border-radius: 23px;
+    align-content: stretch;
+    max-height: 45px;
+}
+
+.navbar.toogle{
+    max-height: 600px;
+}
+
+.navbar-item{
+    overflow: hidden;
+}
+
+.footer{
+    position: unset;
+    bottom: 0px;
+    height: 32px;
+    font-size: smaller;
+}
+
+.banner{
+    background-color: black;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 5vh;
+    overflow-y: hidden;
+}
+
+.story{
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    background-size: contain;
+    color: aqua;
+    display: inline-block;
+}
+
+.story-game-logo,.story-game-title{
+    margin-left: 10px;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.story-game-logo{
+    margin-top: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.story-text{
+    position: absolute;
+    bottom: 10vh;
+    text-align: center;
+}
+
+#menu{
+    background-image: url(/CDEK/images/menubar.png);
+    width: 24px;
+    height: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-size: cover;
+}
+
+#logo{
+    background-image: url("../images/logo.png");
+    background-size: cover;
+}
+
+#searchbar{
+    font-size: larger;
+    width: 100px;
+    margin-top: 0.5px;
+    margin-right: 12px;
+    background-color: aliceblue;
+}
+
+.games{
+    width: 75%;
+    height: fit-content;
+}
+
+.game{
+    width: 300px;
+    min-height: 200px;
+    margin: 10px;
+}
+
+.post-title{
+    background-image: url("../images/Banner.png");
+    width: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 56vw;
+    justify-content: space-around;
+}
+
+#post-title-text{
+    font-size: 7vw;
+    color: aliceblue;
+    cursor: context-menu;
+}
+
+.crousel{
+    width: 99%;
+    margin-top: 40px;
+    justify-content: space-around;
+}
+
+.crousel-image{
+    background-size: cover;
+    width: 75%;
+    height: 39vw;
+}
+
+
+.download-links{
+    width: 100%;
+    font-size: 20px;
+    background-color: aqua;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    padding: 4px 0 4px 0;
+}
+  
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  background-color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  opacity: 60%;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev{
+    left: 0;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  

@@ -1,0 +1,23 @@
+*{
+    background-color: unset;
+    color: black;
+}
+
+.about{
+    margin-left: 40px;
+    margin-top: 20px;
+    font-size: large;
+}
+
+.add-comment{
+    text-align: start;
+    padding: 32px;
+    background-color: bisque;
+}
+
+.comment{
+    background-color: burlywood;
+    padding: 15px;
+    font-size: large;
+    margin-top: 7px;
+}

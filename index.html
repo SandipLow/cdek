@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CDEK/css/utilities.css">
+    <link rel="stylesheet" href="/CDEK/css/style.css">
+    <title>CDEK-Home</title>
+    <link rel="shortcut icon" href="/CDEK/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!--navbar-->
+    <center class="navbar flex">
+        <div class="bg-trans flex navbar-item">
+            <div id="menu" class="bg-black" onclick="mb()"></div>
+            <div class="items bg-trans" id="logo"></div>
+            <div class="items bg-trans" style="padding-top: 6px; font-style: italic; margin-bottom: 5px; margin-right: 100px;">
+                <a class="title bg-trans" style="color: aqua; text-decoration: solid;" href="/CDEK/">CDEK</a>
+            </div>
+        </div>
+        <div class="bg-trans color-aqua flex navbar-item" style="padding-bottom: 6px;">
+            <a href="/CDEK/" class="color-black"
+                style="margin-right: 15px; margin-left: 15px; font-size: 16px; text-decoration: none; border-radius: 6px;">Home</a>
+            <a href="/CDEK/" class="color-aqua bg-trans"
+                style="margin-right: 15px; margin-left: 15px; font-size: 16px; text-decoration: none; border-radius: 6px">About
+                me</a>
+            <a href="/CDEK/" class="color-aqua bg-trans"
+                style="margin-right: 15px; margin-left: 15px; font-size: 16px; text-decoration: none; border-radius: 6px">Contact
+                me</a>
+            <center class="bg-trans color-aqua" style="margin-right: 15px; margin-left: 15px;">
+                Search : <input type="text" id="searchbar">
+            </center>
+        </div>
+    </center>
+
+    <!-- banner -->
+    <div class="banner">
+
+        <div class="story" style="background-image: url(./games/shooteze/Gameplay1.png);">
+            <a href="/CDEK/games/shooteze/" class="bg-trans">
+                <div class="items bg-trans story-game-logo" style="background-image: url(/CDEK/games/shooteze/Logo.png);"></div>
+                <div class="items bg-trans color-aqua story-game-title">Shooteze</div>
+            </a>
+            <div class="bg-trans color-aqua full-width story-text">Shooteze new update demo...</div>
+        </div>
+
+        <div class="story" style="background-image: url(./games/battleboss/Untitled.png);">
+            <a href="/CDEK/games/battleboss/" class="bg-trans">
+                <div class="items bg-trans story-game-logo" style="background-image: url(/CDEK/games/battleboss/Logo.png);"></div>
+                <div class="items bg-trans color-aqua story-game-title">Battle Boss</div>
+            </a>
+            <div class="bg-trans color-aqua full-width story-text">Boss Battle Update : various difficulty levels added. Check out now...</div>
+        </div>
+
+
+        
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <!-- The dots/circles -->
+        <div style="position: absolute; width: 100%; top: 95%; text-align:center" class="bg-trans">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </div>
+    <br>
+
+    <!-- all projects spreadsheets -->
+    <br>
+    <center>
+        <iframe
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRYX56fxRTKMHvz2wP2PVH8ntNe8350CPY7_MX7wWAUixgzm7B39uPD4CzULqN6h47eTi_9k9z2Jz97/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"
+            style="width: 75%; height: 350px;"></iframe>
+    </center>
+
+    <!-- games -->
+    <center>
+        <div class="games flex flex-center">
+            <!-- Shooteeze -->
+            <a href="/CDEK/games/shooteze/">
+                <div class="game items bg-trans">
+                    <img src="games/shooteze/Gameplay1.png"
+                        style="background-size: contain; width: 300px; height: 160px;">
+                    <div class="title">Shooteeze</div>
+                    <br>
+                    <p>Still in Making,</p>
+                    <p>but playable one.</p>
+                </div>
+            </a>
+            <!-- iBear -->
+            <a href="/CDEK/games/iBear">
+                <div class="game items bg-trans">
+                    <img src="games/iBear/Gameplay.png" style="background-size: contain; width: 300px; height: 160px;">
+                    <div class="title">iBear</div>
+                    <br>
+                    <p>My very first project.</p>
+                    <p>Must Try!!!</p>
+                </div>
+            </a>
+            <!-- RollBall -->
+            <a href="/CDEK/games/rollball">
+                <div class="game items bg-trans">
+                    <img src="games/rollball/Gameplay.png"
+                        style="background-size: contain; width: 300px; height: 160px;">
+                    <div class="title">RollBall</div>
+                    <br>
+                    <p>My first 3D project.</p>
+                    <p>Must Try!!!</p>
+                </div>
+            </a>
+            <!-- BattleBoss -->
+            <a href="/CDEK/games/battleboss/">
+                <div class="game items bg-trans">
+                    <img src="games/battleboss/Start.png"
+                        style="background-size: contain; width: 300px; height: 160px;">
+                    <div class="title">Battle Boss</div>
+                    <br>
+                    <p>My first 3D project.</p>
+                    <p>Must Try!!!</p>
+                </div>
+            </a>
+            <!-- TicTacToe -->
+            <a href="/CDEK/games/tictactoe/">
+                <div class="game items bg-trans">
+                    <img src="games/tictactoe/Start.png" style="background-size: contain; width: 300px; height: 160px;">
+                    <div class="title">Tic Tac Toe</div>
+                    <br>
+                    <p>My First game targeted for android.</p>
+                    <p>Must Try!!!</p>
+                </div>
+            </a>
+        </div>
+    </center>
+
+
+    <!-- footer -->
+    <br><br>
+    <div class="footer">
+        <div class="items bg-trans">©CDEK 2021-2022 : All rights reserved</div>
+    </div>
+</body>
+<script src="/CDEK/script.js"></script>
+
+</html>
