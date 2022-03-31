@@ -1,0 +1,60 @@
+*{
+				margin: 0;
+				padding: 0;
+}
+body,html{
+				background: #dfdfdf;
+				height: 100%;
+				width: 100%;
+}
+div{
+				height: 1.5vh;
+				width: 3vw;
+				background: red;
+				position:absolute;
+				top:50vh;
+				left:50vw;
+				border-radius: 50%;
+				/*  
+				box-shadow:10px 10px 0px blue,20px 20px 0px green,30px 30px 0px yellow,
+			
+				
+				-10px -10px 0px blue,-20px -20px 0px green,-30px -30px 0px yellow, 
+				
+				 
+				 10px -10px 0px blue,20px -20px 0px green,30px -30px 0px yellow, 
+				 
+						  
+				  -10px 10px 0px blue,-20px 20px 0px green,-30px 30px 0px yellow
+				 ; */
+				 animation:bisw 1s linear infinite;
+}
+@keyframes bisw{
+				0%{
+								transform:rotateZ(0deg);
+				}
+				50%{
+								transform:rotateZ(180deg);
+								box-shadow:20px 20px 0px blue,30px 30px 0px green,40px 40px 0px yellow,
+			
+			/* 
+			
+			 */
+				
+				-20px -20px 0px blue,-30px -30px 0px green,-40px -40px 0px yellow, 
+				
+				/* 
+				 */
+				 
+				 20px -20px 0px blue,30px -30px 0px green,40px -40px 0px yellow, 
+				 
+				 /* 
+				  */
+				  
+				  -20px 20px 0px blue,-30px 30px 0px green,-40px 40px 0px yellow
+				 ;
+				}
+				100%{
+								transform:rotateZ(360deg);
+				}
+}
