@@ -26,3 +26,7 @@
     border: 2px solid;
     margin-bottom: 5px;
 }
+
+#comment p {
+    min-height: 24px;
+}

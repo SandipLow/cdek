@@ -8,6 +8,9 @@ export default function Comment(props) {
 
     const [comment, setComment] = useState(props.comment)
 
+    const commentParts = comment.split("\n")
+
+
     //=========================================================
     // ====================== ALL PROPS ======================
     // name : commentor , 
@@ -54,10 +57,11 @@ export default function Comment(props) {
 
             <div className='timestamp'>{props.time}</div><hr/>
 
-            { 
-                props.loggedIn ? <input value={comment} onChange={(e)=>{setComment(e.target.value)}} />
-                :   props.isAdmin ? <p style={{color : 'blue'}}>{props.comment}</p>
-                    : <p>{props.comment}</p>
+            {
+                props.loggedIn ? <textarea value={comment} onChange={(e)=>{setComment(e.target.value)}} className="full-width" rows={3} />
+                :   <div id='comment'>{
+                        commentParts.map((part, index)=> <p key={index} style={props.isAdmin?{color: 'blueviolet'}:null} >{part}</p>)
+                    }</div>
             }
 
             {
