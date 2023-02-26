@@ -1,6 +1,8 @@
 import { FirebaseOptions, initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"; 
 import { getStorage } from "firebase/storage"
+import { getAuth, onAuthStateChanged, User } from "firebase/auth"
+import { useEffect, useState } from "react";
 
 const firebaseConfig : FirebaseOptions = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -15,8 +17,20 @@ const firebaseConfig : FirebaseOptions = {
 
 
 const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app)
+const useAuth = ()=> {
+  const [user, setUser] = useState<User | null>()
+
+  useEffect(()=> {
+    onAuthStateChanged(auth, (_user)=> setUser(_user))
+  }, [])
+
+  return user
+}
+
 const db = getFirestore(app)
 const storage = getStorage(app, 'gs://cdek-8927886351.appspot.com');
 
 
-export { app, db, storage };
+export { app, db, storage, auth, useAuth };

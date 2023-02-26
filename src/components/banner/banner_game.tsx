@@ -1,6 +1,9 @@
-import React from 'react'
 
-const Banner = (props: any) => {
+interface Props {
+  title: string,
+}
+
+const Banner = (props: Props) => {
   return (
     <>
     <section id="Banner" className='w-screen h-96 bg-cdek-black text-white'>

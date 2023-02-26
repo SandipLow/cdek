@@ -10,6 +10,9 @@ export function useGames() {
     useEffect(()=> {
         const q = query(collection(db, "games"))
 
+        console.log(games);
+        
+
         const unsubscribe = onSnapshot(q, (snapshot) => {
             const mapped = snapshot.docs.map(doc=>(
                 {
@@ -22,7 +25,7 @@ export function useGames() {
         })
 
         return ()=> unsubscribe()
-    })
+    }, [])
 
     return games;
 }
