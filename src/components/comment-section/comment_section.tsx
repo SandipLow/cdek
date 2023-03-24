@@ -1,11 +1,12 @@
 import React from 'react'
 import { addComment, useComments } from '../../utils/api'
+import { useAuth } from '../../utils/firebase'
 import Comment from './comment'
 
 const CommentSection = (props: any) => {
 
     const comments = useComments(props.gameId)
-    
+    const user = useAuth()
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>)=> {
         e.preventDefault()
@@ -15,7 +16,7 @@ const CommentSection = (props: any) => {
             name: form.name.value,
             comment: form.comment.value,
         }
-        addComment(false, data)
+        addComment(user !== null, data)
     }
 
     return (

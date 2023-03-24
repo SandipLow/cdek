@@ -1,3 +1,6 @@
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "./firebase";
+
 export function timeDifference(current: any, previous: any) {
 
     let msPerMinute = 60 * 1000;
@@ -35,5 +38,14 @@ export function timeDifference(current: any, previous: any) {
 
 export function sleep(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+export async function errorHandler(err: any) {
+    await addDoc(collection(db, 'errors'), {
+        project: "CDEK Official website",
+        err
+    })
+
+    alert("Some Error Occured, and sent it to the developer")
 }
 

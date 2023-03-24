@@ -30,7 +30,6 @@ export function useGames() {
     return games;
 }
 
-
 export async function getGames() : Promise<GameData[]|any>{
 
     const q = query(collection(db, "games"))
@@ -114,14 +113,15 @@ export async function addComment(Admin:boolean=false, formData: any) {
         doc = await addDoc(collection(db, `games/${formData.game_id}/comments`), {
             name: formData.name,
             comment: formData.comment,
-            time: Timestamp.now()
+            time: Timestamp.now(),
+            Admin: false
         })
     } else {
-        doc = await addDoc(collection(db, `games/${formData.id}/comments`), {
-            name: formData.name.value,
-            comment: formData.comment.value,
+        doc = await addDoc(collection(db, `games/${formData.game_id}/comments`), {
+            name: formData.name,
+            comment: formData.comment,
             time: Timestamp.now(),
-            Admin : false
+            Admin : true
         })
     }
 
@@ -135,3 +135,6 @@ export async function addComment(Admin:boolean=false, formData: any) {
     return doc
 }
 
+export async function uploadGameImage () {}
+
+export async function setGameData() {}
