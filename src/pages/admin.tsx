@@ -26,10 +26,18 @@ function InputForm() {
   const [id, setId] = useState("")
   const [password, setPassword] = useState("")
 
-  const handleLogIn = async ()=> {
+  const handleLogIn = ()=> {
     setClicked(true)
-    const res = await signInWithEmailAndPassword(auth, id, password)
-    if (!res) setClicked(false)
+    signInWithEmailAndPassword(auth, id, password).then(
+      (res)=> {
+        setClicked(false)
+      }
+    ).catch ((err)=> {
+      alert("Error Logging you In...!")
+      console.log(err.message);
+      setClicked(false)
+    })
+    
   }
 
   return (

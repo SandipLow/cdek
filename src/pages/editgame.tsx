@@ -7,6 +7,7 @@ import { useLoaderData } from "react-router-dom"
 import Banner from "../components/banner/banner_game"
 import EditGameInfo from "../components/game-info/edit_game_info"
 import FaLoading from "../components/loading/faLoading"
+import { uploadGameImage } from "../utils/api"
 import { db, storage } from "../utils/firebase"
 import { GameData } from "../utils/interfaces"
 import { errorHandler } from "../utils/tools"
@@ -91,64 +92,32 @@ const UploadModal = ({ open, setOpen, srcInitial, gameData }: UploadModalProps)=
         previewUploadRef.current.src = URL.createObjectURL(e.target.files[0]);
     }
 
-    const handleUpload = (e: MouseEvent<HTMLButtonElement>)=> {
+    const handleUpload = async (e: MouseEvent<HTMLButtonElement>)=> {
         if (!selectedImage) return
 
-        // Upload Code
-        const fileRef = ref(storage, `games/${gameData.name}/${selectedImage.name}`)
-
-        const _uploadTask = uploadBytesResumable(fileRef, selectedImage)
-        setUploadTask(_uploadTask)
-
-        _uploadTask.on(`state_changed`, (snapshot) => {
-
-            const progressSnap = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            setProgress(progressSnap);
-
-            switch (snapshot.state) {
-                case 'paused':
-                console.log('Upload is paused');
-                break;
-                case 'running':
-                console.log('Upload is running');
-                break;
+        await uploadGameImage(
+            selectedImage, 
+            gameData, 
+            srcInitial !== null,
+            srcInitial ? gameData.images.indexOf(srcInitial) : -1,
+            // uploading callback
+            (_uploadtask: UploadTask, progressSnap: number) =>{
+                setUploadTask(_uploadtask)
+                setProgress(progressSnap)
+            },
+            // success callback
+            () => {
+                setSelectedImage(null);
+                setOpen(false);
+                setProgress(null);
+            },
+            // error callback
+            (err: any) => {
+                setSelectedImage(null);
+                setOpen(false);
+                setProgress(null);
             }
-
-        }, 
-        async (err)=> {
-            await errorHandler(JSON.stringify(err))
-
-            setSelectedImage(null);
-            setOpen(false);
-            setProgress(null);
-        },
-        async () => {
-            const url = await getDownloadURL(_uploadTask.snapshot.ref)
-
-            // updating image
-            if (srcInitial) {
-                const indexOfImage = gameData.images.indexOf(srcInitial)
-
-                let copy = gameData.images
-                copy[indexOfImage] = url
-    
-                await updateDoc(doc(db, 'games/'+gameData.id), {
-                    ...gameData,
-                    images: copy
-                })
-            } 
-            // adding new image
-            else {
-                await addDoc(collection(db, 'games'), {
-                    ...gameData, 
-                    images: [...gameData.images, url]
-                })
-            }
-
-            setSelectedImage(null);
-            setOpen(false);
-            setProgress(null);
-        });
+        )
 
     }
 
@@ -162,9 +131,9 @@ const UploadModal = ({ open, setOpen, srcInitial, gameData }: UploadModalProps)=
                 <img className="w-full my-2" ref={previewUploadRef} src={srcInitial} alt="preview" />
                 {
                     uploadTask ? <div className="p-2 text-blue-600">
-                        <FaLoading />
+                        <button className="border border-blue-600 p-2 text-blue-600"><FaLoading/></button>
                         <button onClick={()=>uploadTask.cancel()} className="border border-blue-600 p-2 text-blue-600">Cancel</button>
-                        <span>{}%</span>
+                        <span>{progress} %</span>
                     </div>
                     : <button onClick={handleUpload} className="border border-blue-600 p-2 text-blue-600">Submit</button>
                 }
