@@ -1,16 +1,13 @@
-import { faClose, faCross, faEdit } from "@fortawesome/free-solid-svg-icons"
+import { faClose, faEdit } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { addDoc, collection, doc, updateDoc } from "firebase/firestore"
-import { getDownloadURL, ref, uploadBytesResumable, UploadTask } from "firebase/storage"
+import { UploadTask } from "firebase/storage"
 import { ChangeEvent, useEffect, useRef, useState, MouseEvent } from "react"
 import { useLoaderData } from "react-router-dom"
 import Banner from "../components/banner/banner_game"
 import EditGameInfo from "../components/game-info/edit_game_info"
 import FaLoading from "../components/loading/faLoading"
 import { uploadGameImage } from "../utils/api"
-import { db, storage } from "../utils/firebase"
 import { GameData } from "../utils/interfaces"
-import { errorHandler } from "../utils/tools"
 
 const EditGame = ()=>  {
     const data: GameData|any = useLoaderData()
@@ -31,24 +28,26 @@ const EditGame = ()=>  {
             srcInitial={srcInitial} 
             gameData={data}
         />
-        <section className='h-72 py-3 px-1 bg-cdek-gray w-full flex overflow-x-auto'>
-            {
-                data.images.map((url: string, ind: number)=>{
-                    return (
-                        <div key={ind} className="relative h-full inline-block mx-2">
-                            <img key={ind} src={url} alt={`img${ind}`} className='h-full object-cover' />
-                            <button 
-                                onClick={e=>{
-                                    setUploadModalOpen(true)
-                                    setSrcInitial(url)
-                                }} 
-                                className="absolute bg-white rounded-full top-2 right-2 h-8 w-8">
-                                <FontAwesomeIcon icon={faEdit}  />
-                            </button>
-                        </div>
-                    )
-                })
-            }
+        <section className='py-3 px-1 bg-cdek-gray w-full overflow-x-auto whitespace-nowrap'>
+            <div className="flex items-center">
+                {
+                    data.images.map((url: string, ind: number)=>{
+                        return (
+                            <div key={ind} className="relative h-64 w-96 mx-2 flex-shrink-0">
+                                <img src={url} alt={`img${ind}`} className="h-full w-full object-cover rounded-md" />
+                                <button 
+                                    onClick={() => {
+                                        setUploadModalOpen(true);
+                                        setSrcInitial(url);
+                                    }} 
+                                    className="absolute bg-white rounded-full top-1 right-1 h-8 w-8 flex items-center justify-center shadow-md">
+                                    <FontAwesomeIcon icon={faEdit} />
+                                </button>
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </section>
         <EditGameInfo 
             shortDescription={data.shortDesc} 
